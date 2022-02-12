@@ -4,7 +4,7 @@
 
 Aca encuentras los códigos y presentaciones de cada sesión del Workshop y en [esta página](https://science-and-commit.github.io) puedes encontrar más información.
 
-![luan](https://drive.google.com/drive/u/0/folders/1NCa_xhfnhReiQkn4tPBHP40OK7DpPJJo)
+![luan](https://raw.githubusercontent.com/Science-and-Commit/Science-and-Commit.github.io/master/assets/favicon/Luan_mortal.png)
 
 # RESUMEN
 
