@@ -4,7 +4,7 @@
 
 Aca encuentras los códigos y presentaciones de cada sesión del Workshop y en [esta página](https://science-and-commit.github.io) puedes encontrar más información.
 
-![luan](https://raw.githubusercontent.com/Science-and-Commit/Workshop_2022/main/General_Information/Pictures/Luan_mortal.png?token=GHSAT0AAAAAABP2KYCSKQL2Q3GUCZXVGHK6YQHCZ4Q)
+![luan](https://drive.google.com/drive/u/0/folders/1NCa_xhfnhReiQkn4tPBHP40OK7DpPJJo)
 
 # RESUMEN
 
