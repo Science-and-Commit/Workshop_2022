@@ -16,3 +16,5 @@ El workshop será aparte acompañado de dos charlas invitadas. Las temáticas se
 Todas las sesiones sincrónicas serán por zoom y quedarán grabadas en la lista de YouTube.
 
 Este workshop se basa en [Code/Astro](https://github.com/semaphoreP/codeastro).
+
+![Logo](https://raw.githubusercontent.com/Science-and-Commit/Workshop_2022/main/General_Information/Pictures/logo_redondo.png?token=GHSAT0AAAAAABP2KYCTHM4RCTJCBUDAQHOCYQHCHGQ)
