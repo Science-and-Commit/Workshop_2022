@@ -15,4 +15,4 @@ El workshop será aparte acompañado de dos charlas invitadas. Las temáticas se
 
 Todas las sesiones sincrónicas serán por zoom y quedarán grabadas en la lista de YouTube.
 
-Este workshop se basa en [Code/Astro](https://github.com/semaphoreP/codeastro), un curso parecido a este de Caltech.
+Este workshop se basa en [Code/Astro](https://github.com/semaphoreP/codeastro).
