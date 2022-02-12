@@ -17,4 +17,4 @@ Todas las sesiones sincrónicas serán por zoom y quedarán grabadas en la lista
 
 Este workshop se basa en [Code/Astro](https://github.com/semaphoreP/codeastro).
 
-![Logo](https://raw.githubusercontent.com/Science-and-Commit/Workshop_2022/main/General_Information/Pictures/logo_redondo.png?token=GHSAT0AAAAAABP2KYCTHM4RCTJCBUDAQHOCYQHCHGQ width="350")
+![Logo](https://raw.githubusercontent.com/Science-and-Commit/Workshop_2022/main/General_Information/Pictures/logo_redondo.png?token=GHSAT0AAAAAABP2KYCTHM4RCTJCBUDAQHOCYQHCHGQ)
