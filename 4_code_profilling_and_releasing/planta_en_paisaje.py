@@ -241,6 +241,16 @@ def convergencia(Temp, BordesFijos, hora, tol=1, itermax=5000, w=1):
     print(N)
     return temp
 
+def plot_paisaje(Temp, BordesFijos, hora, w, title):
+    temp_final = convergencia(Temp,BordesFijos , hora, w=w)
+    plt.imshow(np.log(temp_final+13), origin='bottom', interpolation='nearest', cmap=plt.get_cmap('jet'), extent=(0,4,0,2))
+    plt.colorbar()
+    plt.title(title)
+    plt.xlabel('Distancia', fontsize=14)
+    plt.ylabel('Altura', fontsize=14)
+    plt.show()
+    return
+
 
 #Datos Finales (Se demoran mucho en converger)
 #Temperatura_final0 = convergencia(Temp, BordesFijos, 0, w=1.5)
@@ -288,17 +298,6 @@ def convergencia(Temp, BordesFijos, hora, tol=1, itermax=5000, w=1):
 #plt.show()
 #
 #
-##plot hora 12
-#plt.clf()
-#plt.imshow(np.log(Temperatura_final12+13), origin='bottom', 
-#           interpolation='nearest', cmap=plt.get_cmap('jet'), extent=(0,4,0,2))
-#plt.colorbar()
-#plt.title('Perfil de temperatura en la zona, 12 hrs', fontsize=14)
-#plt.xlabel('Distancia', fontsize=14)
-#plt.ylabel('Altura', fontsize=14)
-#plt.savefig('Temp12.jpg')
-#plt.show()
-#
 #
 ##plot hora 16
 #plt.clf()
@@ -311,17 +310,7 @@ def convergencia(Temp, BordesFijos, hora, tol=1, itermax=5000, w=1):
 #plt.savefig('Temp16.jpg')
 #plt.show()
 
-#print(np.min(Temperatura_final20))
-#plot hora 20
-#plt.clf()
-#plt.imshow(np.log(Temperatura_final20+37), origin='bottom', 
-#           interpolation='nearest', cmap=plt.get_cmap('jet'), extent=(0,4,0,2))
-#plt.colorbar()
-#plt.title('Perfil de temperatura en la zona, 20 hrs', fontsize=14)
-#plt.xlabel('Distancia', fontsize=14)
-#plt.ylabel('Altura', fontsize=14)
-#plt.savefig('Temp20.jpg')
-#plt.show()
+
 
 
 #BUSQUEDA DE numero de iteraciones para diferentes w y la temp promedio 
