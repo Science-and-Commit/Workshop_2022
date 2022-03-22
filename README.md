@@ -18,4 +18,4 @@ Todas las sesiones sincrónicas serán por zoom y quedarán grabadas en la lista
 
 Este workshop se basa en [Code/Astro](https://github.com/semaphoreP/codeastro).
 
-![Logo](https://raw.githubusercontent.com/Science-and-Commit/Science-and-Commit.github.io/master/assets/favicon/logo_redondo_192.png)
+![Logo](https://raw.githubusercontent.com/Science-and-Commit/Science-and-Commit.github.io/master/assets/favicon/logo_redondo_192.png) 
