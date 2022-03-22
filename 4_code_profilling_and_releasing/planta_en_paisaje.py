@@ -19,10 +19,11 @@ Borde = np.zeros([200, 400])
 def mar(hora, Esp):
     """
     Temp para el mar en funcion del tiempo
-    ====
-    Inputs:
-    hora:
-    Esp:
+    ------
+    Inputs
+    ------
+    hora : [float]
+    Esp :
     Output:
     Esp:
     """
@@ -50,7 +51,7 @@ def atmosfera(hora, Esp, altura):
 
 def tierra(Esp):
     """
-    Temp para la tierra, es constante
+    Temperatura para la tierra, es constante
     """
     Esp = 15
     return Esp
@@ -58,7 +59,7 @@ def tierra(Esp):
 
 def nieve(Esp):
     """
-    Temp para la nieve, es constante
+    Temperatura para la nieve, es constante
     """
     Esp = 0
     return Esp
@@ -66,7 +67,7 @@ def nieve(Esp):
 
 def chimenea(hora, Esp):
     """
-    Temp para la chimenea en funcion del tiempo
+    Temperatura para la chimenea en funcion del tiempo
     """
     Esp = 500 * (np.cos((np.pi / 12) * hora) + 2)
     return Esp
@@ -224,10 +225,19 @@ def convergencia(Temp, BordesFijos, hora, tol=1, itermax=5000, w=1):
     """
     Funcion que hace que la solucion converga
     Utiliza otras funciones dentro de ella
-    Inputs (Matriz con ceros para poner la temperatura, los bordes y la hora.
-            se le puede dar tambien la tolerancia, iteracion max y
-            parámetro w del método de sobre relajacion)
-    Outputs (Matriz de temperaturas que convergió)
+    -----
+    Input
+    -----
+    Temp : Matriz con ceros para poner la temperatura
+    BordesFijos : Bordes
+    hora : [float]
+    tol : [int] Tolerancia, por defecto 1 
+    itermax : [int] numero máximo de iteraciones, por defecto 5000
+    w : [float] parámetro del método de sobre relajación, por defecto 1
+    ------
+    Output
+    ------
+    temp : Matriz de temperaturas que convergió
     """
     N = 0
     temp_antes = Inicial(BordesFijos, Temp, hora)
@@ -241,10 +251,25 @@ def convergencia(Temp, BordesFijos, hora, tol=1, itermax=5000, w=1):
     print(N)
     return temp
 
-def plot_paisaje(Temp, BordesFijos, hora, w, title):
+def plot_paisaje(Temp, BordesFijos, hora, w):
+    """
+    Grafica el paisaje a una cierta hora
+    -----
+    Input
+    -----
+    Temp : 
+    BordesFijos : 
+    hora : [float]
+    w : [float]
+    -----
+    Output
+    -----
+    None
+    """
     temp_final = convergencia(Temp,BordesFijos , hora, w=w)
     plt.imshow(np.log(temp_final+13), origin='bottom', interpolation='nearest', cmap=plt.get_cmap('jet'), extent=(0,4,0,2))
     plt.colorbar()
+    title = 'Hora {}'.format(hora)
     plt.title(title)
     plt.xlabel('Distancia', fontsize=14)
     plt.ylabel('Altura', fontsize=14)
@@ -260,93 +285,5 @@ def plot_paisaje(Temp, BordesFijos, hora, w, title):
 
 #Nueva=Temp.copy()
 #NuevaTemp=Inicial(BordesFijos, Nueva,12)
-#
-#####################GRAFICOS#######################
-##plot bordes
-#plt.clf()
-#plt.imshow(np.log(NuevaTemp+13), origin='bottom', interpolation='nearest', 
-#           cmap='jet')
-#plt.colorbar()
-#plt.title('Planta apagada, 12 hrs', fontsize=14)
-#plt.xlabel('Distancia', fontsize=14)
-#plt.ylabel('Altura', fontsize=14)
-#plt.savefig('SinPlantaActiva.jpg')
-#plt.show()
-
-
-##plot hora 0
-#plt.clf()
-#plt.imshow(np.log(Temperatura_final0+13), origin='bottom', 
-#           interpolation='nearest', cmap=plt.get_cmap('jet'), extent=(0,4,0,2))
-#plt.colorbar()
-#plt.title('Perfil de temperatura en la zona, 0 hrs', fontsize=14)
-#plt.xlabel('Distancia', fontsize=14)
-#plt.ylabel('Altura', fontsize=14)
-#plt.savefig('Temp0.jpg')
-#plt.show()
-#
-#
-##plot hora 8
-#plt.clf()
-#plt.imshow(np.log(Temperatura_final8+13), origin='bottom', 
-#           interpolation='nearest', cmap=plt.get_cmap('jet'), extent=(0,4,0,2))
-#plt.colorbar()
-#plt.title('Perfil de temperatura en la zona, 8 hrs', fontsize=14)
-#plt.xlabel('Distancia', fontsize=14)
-#plt.ylabel('Altura', fontsize=14)
-#plt.savefig('Temp8.jpg')
-#plt.show()
-#
-#
-#
-##plot hora 16
-#plt.clf()
-#plt.imshow(np.log(Temperatura_final16+13), origin='bottom', 
-#           interpolation='nearest', cmap=plt.get_cmap('jet'), extent=(0,4,0,2))
-#plt.colorbar()
-#plt.title('Perfil de temperatura en la zona, 16 hrs', fontsize=14)
-#plt.xlabel('Distancia', fontsize=14)
-#plt.ylabel('Altura', fontsize=14)
-#plt.savefig('Temp16.jpg')
-#plt.show()
-
-
-
-
-#BUSQUEDA DE numero de iteraciones para diferentes w y la temp promedio 
-#####################
-#w=np.linspace(1,1.9,9)
-#T=np.zeros(9)
-#for i in range(len(w)):
-#    NuevaTemp=Temp.copy()
-#    Temp_final = convergencia(Temp, BordesFijos, 20,tol=1, w=w[i])
-#    promedioT=0
-#    Contador=0
-#    for j in range(len(Temp_final[0,:])):
-#        for k in range(len(Temp_final[:,0])):
-#            if BordesFijos[k,j]== 0:
-#                promedioT+=Temp_final[k,j]
-#                Contador += 1
-#    T[i]=(promedioT/Contador)
-#print(T)    
-    
-
-#Conv_12=[62,61,61,60,58,56,54,53,58]
-#Conv_20=[895, 1002, 894, 893, 891, 445, 667, 448, 328]
-#T_20=[-22.5, -22.08,  -22.5, -22.5, -22.5, -24.7, -23.45, -24.5, -24.58]
-#plt.plot(w,Conv_20)
-#plt.title('w vs Numero de iteraciones, 20 hrs', fontsize=14)
-#plt.xlabel('w', fontsize=14)
-#plt.ylabel('N de iteraciones', fontsize=14)
-#plt.savefig('w_vs_N_20.jpg')
-#plt.show()
-
-
-#plt.plot(w,T_20)
-#plt.title('w vs T promedio, 20 hrs', fontsize=14)
-#plt.xlabel('w', fontsize=14)
-#plt.ylabel('Temperatura', fontsize=14)
-#plt.savefig('w_vs_T_20.jpg')
-#plt.show()
 
 
