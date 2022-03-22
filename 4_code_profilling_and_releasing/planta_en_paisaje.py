@@ -267,7 +267,7 @@ def plot_paisaje(Temp, BordesFijos, hora, w):
     None
     """
     temp_final = convergencia(Temp,BordesFijos , hora, w=w)
-    plt.imshow(np.log(temp_final+13), origin='bottom', interpolation='nearest', cmap=plt.get_cmap('jet'), extent=(0,4,0,2))
+    plt.imshow(np.log(temp_final+13), origin='lower', interpolation='nearest', cmap=plt.get_cmap('jet'), extent=(0,4,0,2))
     plt.colorbar()
     title = 'Hora {}'.format(hora)
     plt.title(title)
