@@ -251,7 +251,7 @@ def convergencia(Temp, BordesFijos, hora, tol=1, itermax=5000, w=1):
     print(N)
     return temp
 
-def plot_paisaje(Temp, BordesFijos, hora, w):
+def plot_paisaje(Temp, BordesFijos, hora, w, tol=1):
     """
     Grafica el paisaje a una cierta hora
     -----
@@ -266,7 +266,7 @@ def plot_paisaje(Temp, BordesFijos, hora, w):
     -----
     None
     """
-    temp_final = convergencia(Temp,BordesFijos , hora, w=w)
+    temp_final = convergencia(Temp,BordesFijos, hora, w=w, tol=tol)
     plt.imshow(np.log(temp_final+13), origin='lower', interpolation='nearest', cmap=plt.get_cmap('jet'), extent=(0,4,0,2))
     plt.colorbar()
     title = 'Hora {}'.format(hora)
