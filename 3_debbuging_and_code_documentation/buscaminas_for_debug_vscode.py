@@ -6,6 +6,7 @@ Las coordenadas del mapa van del (1,1) a (dimx,dimy).
 '''
 
 import numpy as np
+import matplotlib.pyplot as plt
 
 # pedimos las dimensiones
 dimx, dimy = (int(input('Elije las dimensiones del mapa (ej para 5x6: 5 y luego 6):')), 
