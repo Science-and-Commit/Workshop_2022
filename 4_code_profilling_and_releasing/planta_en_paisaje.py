@@ -16,61 +16,95 @@ Borde = np.zeros([200, 400])
 
 
 #Funciones para en el futuro aplicar las condiciones de borde
-def mar(hora, Esp):
+def mar(hora):
     """
-    Temp para el mar en funcion del tiempo
+    Temperatura para el mar en funcion del tiempo
     ------
     Inputs
     ------
-    hora : [float]
-    Esp :
+    hora : [float] Hora por evaluar
+    ------
     Output:
-    Esp:
+    ------
+    t : [float] temperatura del mar
     """
     if 0 <= hora <= 8:
-        Esp = 4
+        t = 4
     if 8 < hora <= 16:
-        Esp = 4 + (16 / 8) * hora
+        t = 4 + (16 / 8) * (hora-8)
     if 16 < hora < 24:
-        Esp = 16 - (16 / 8) * hora
-    return Esp
+        t = 20 - (16 / 8) * (hora-16)
+    return t
 
 
-def atmosfera(hora, Esp, altura):
+def atmosfera(hora, altura):
     """
     Temp para la atmosfera en funcion del tiempo y altura
+    -----
+    Input
+    -----
+    hora : [float] hora 
+    altura : [float] altura en dm
+    -----
+    Output
+    -----
+    t : temperatura de la atmosfera
     """
     if 0 <= hora <= 8:
-        Esp = 4 - (12 / 200.0) * altura
+        t = 4 - (6/100) * altura
     if 8 < hora <= 16:
-        Esp = 4 + (16 / 8) * hora - (12 / 200.0) * altura
+        t = 4 + (16 / 8) * (hora-8) - (6/100) * altura
     if 16 < hora < 24:
-        Esp = 16 - (16 / 8) * hora - (12 / 200.0) * altura
-    return Esp
+        t = 20 - (16 / 8) * (hora-16) - (6/100) * altura
+    return t
 
 
-def tierra(Esp):
+def tierra():
     """
     Temperatura para la tierra, es constante
+    -----
+    Input
+    -----
+    None
+    -----
+    Output
+    -----
+    t : [int] temperatura de la tierra en grados celsius = 15ºC
     """
-    Esp = 15
-    return Esp
+    t = 15
+    return t
 
 
-def nieve(Esp):
+def nieve():
     """
     Temperatura para la nieve, es constante
+    -----
+    Input
+    -----
+    None
+    -----
+    Output
+    -----
+    t : [int] temperatura de la nieve en grados celsius = 0ºC
     """
-    Esp = 0
-    return Esp
+    t = 0
+    return t
 
 
-def chimenea(hora, Esp):
+def chimenea(hora):
     """
     Temperatura para la chimenea en funcion del tiempo
+    -----
+    Input
+    -----
+    hora : [float] hora
+    -----
+    Output
+    -----
+    t : [int] temperatura de chimenea segun la hora
     """
-    Esp = 500 * (np.cos((np.pi / 12) * hora) + 2)
-    return Esp
+    t = 500 * (np.cos((np.pi / 12) * hora) + 2)
+    return t
 
 
 #hacer el espacio con montañitas y todo
@@ -86,10 +120,14 @@ def CreaBordes(Espacio):
     tierra=2
     nieve=3
     chimenea=4
-    Inputs:
-        Espacio : Matriz con ceros y una hora
-    Outputs:
-        Espacio: Los bordes geográficos con numeros que separan por tipo
+    ------
+    Inputs
+    ------
+    Espacio : [np.zeros(N,N)] Matriz con ceros
+    -------
+    Outputs
+    -------
+    Espacio: [np.matrix] Los bordes geográficos con numeros que separan por tipo
     """
     x2 = 121.36
     x3 = 131.36
@@ -138,7 +176,7 @@ def CreaBordes(Espacio):
 
 
 #SE crea la matriz con la geografía del problema
-BordesFijos = CreaBordes(Borde)
+#BordesFijos = CreaBordes(Borde)
 
 
 #aplicar cond borde en la atmósfera
@@ -150,26 +188,30 @@ def Inicial(Bordes, temperaturas, hora):
     Luego se itera en el largo y en el ancho segun la geografía
     Devuelve el espacio con las condiciones de borde temp
     Se agregan los valores de la atmósfera también
-    Inputs:
-        Bordes : Bordes geográficos
-        temperaturas: matriz de ceros para temp
-        hora: la hora
-    Outputs: 
-        temperaturas: Matriz con temperaturas asociadas a esa hora
+    ------
+    Input
+    ------
+    Bordes : [np.matrix] Bordes geográficos
+    temperaturas: [np.zeros(N,N)] matriz de ceros para temp
+    hora: [float] la hora
+    -------
+    Output
+    -------
+    temperaturas: [np.matrix] Matriz con temperaturas asociadas a esa hora
     """
     for i in range(len(Bordes[0, :])):
         if Bordes[0, i] == 4:
-            temperaturas[0, i] = chimenea(hora, temperaturas[0][i])
+            temperaturas[0, i] = chimenea(hora)
         for j in range(len(Bordes[:, 0])):
             if Bordes[j, i] == 0:
-                T = atmosfera(hora, temperaturas[j][i], j)
+                T = atmosfera(hora, j)
                 temperaturas[j, i] = T
-            if Bordes[j, i] == 1:
-                temperaturas[j, i] = tierra(temperaturas[j][i])
-            if Bordes[j, i] == 3:
-                temperaturas[j, i] = nieve(temperaturas[j][i])
             if Bordes[j, i] == 2:
-                temperaturas[j, i] = mar(hora, temperaturas[j][i])
+                temperaturas[j, i] = tierra()
+            if Bordes[j, i] == 3:
+                temperaturas[j, i] = nieve()
+            if Bordes[j, i] == 1:
+                temperaturas[j, i] = mar(hora)
     return temperaturas
 
 
@@ -178,11 +220,11 @@ def Itera_uno(temp, Bordes, w=1):
     """
     Funcion para iterar un paso con la ecuacion de Laplace
     Inputs:
-        temp : matriz con temperaturas
-        Bordes: matriz con bordes
-        w : parámetro w de sobre relajación
+        temp : [np.matrix] matriz con temperaturas
+        Bordes: [np.matrix] matriz con bordes
+        w : [float] parámetro w de sobre relajación
     Outputs:
-        temp : Matriz de temperaturas una iteración después
+        temp : [np.matrix] Matriz de temperaturas una iteración después
     """
     temp = temp.copy()
     for i in range(1, len(temp[0, :]) - 1):
@@ -211,33 +253,40 @@ def Itera_uno(temp, Bordes, w=1):
 def no_ha_convergido(temp, temp_antes, tol):
     """
     Prueba si los datos han convergido
-    Inputs (Matriz una iteracion antes y una despues y una tolerancia)
-    Outputs (True a la tolerancia o False)
+    -----
+    Inputs
+    ------
+    temp : [np.matrix] Matriz una iteracion antes
+    temp_antes : [np.matrix] Matriz una iteracion despues
+    tol : [float]  Tolerancia
+    -------
+    Outputs
+    -------
+    condicion : [bool] True a la tolerancia o False
     """
     nozero = temp != 0
-    #diff_relativa=[]
     diff_relativa = ((temp_antes[nozero] - temp[nozero]) / temp[nozero])
     output = np.max(np.fabs(diff_relativa))
-    return output > tol
-
+    condicion = output > tol
+    return condicion
 
 def convergencia(Temp, BordesFijos, hora, tol=1, itermax=5000, w=1):
     """
     Funcion que hace que la solucion converga
-    Utiliza otras funciones dentro de ella
+    Utiliza otras funciones dentro de ella  
     -----
     Input
     -----
-    Temp : Matriz con ceros para poner la temperatura
-    BordesFijos : Bordes
-    hora : [float]
-    tol : [int] Tolerancia, por defecto 1 
+    Temp : [np.zeros(N,N)] Matriz con ceros para poner la temperatura
+    BordesFijos : [np.matrix] Bordes del paisaje
+    hora : [float] la hora
+    tol : [float] Tolerancia, por defecto 1 
     itermax : [int] numero máximo de iteraciones, por defecto 5000
     w : [float] parámetro del método de sobre relajación, por defecto 1
     ------
     Output
     ------
-    temp : Matriz de temperaturas que convergió
+    temp : [np.matrix] Matriz de temperaturas que convergió
     """
     N = 0
     temp_antes = Inicial(BordesFijos, Temp, hora)
@@ -245,10 +294,10 @@ def convergencia(Temp, BordesFijos, hora, tol=1, itermax=5000, w=1):
     while no_ha_convergido(temp, temp_antes, tol) and N < itermax:
         #print('paciencia '+str(N))
         temp_antes = temp.copy()
-        temp = Itera_uno(temp_antes, BordesFijos)
+        temp = Itera_uno(temp, BordesFijos)
         N += 1
     #prints para no olvidar estos números importantes
-    print(N)
+    #print(N)
     return temp
 
 def plot_paisaje(Temp, BordesFijos, hora, w, tol=1):
@@ -257,22 +306,27 @@ def plot_paisaje(Temp, BordesFijos, hora, w, tol=1):
     -----
     Input
     -----
-    Temp : 
-    BordesFijos : 
-    hora : [float]
-    w : [float]
+    Temp : [np.zeros(N,N)] matriz de ceros para la temperatura
+    BordesFijos : [np.matrix] matriz con los bordes del paisaje
+    hora : [float] la hora
+    w : [float] parámtero de relajación
+    tol : [float] tolerancia del método de relajación, por defecto = 1
     -----
     Output
     -----
     None
     """
+    #plt.imshow()
+    #plt.show()
     temp_final = convergencia(Temp,BordesFijos, hora, w=w, tol=tol)
-    plt.imshow(np.log(temp_final+13), origin='lower', interpolation='nearest', cmap=plt.get_cmap('jet'), extent=(0,4,0,2))
-    plt.colorbar()
+    plt.imshow(np.log10(temp_final+13), origin='lower', interpolation='nearest', cmap=plt.get_cmap('jet'), extent=(0,4,0,2))
+    cbar = plt.colorbar()
+    cbar.ax.tick_params(labelsize=14)
+    cbar.ax.set_title('$log T/ºC $')
     title = 'Hora {}'.format(hora)
-    plt.title(title)
-    plt.xlabel('Distancia', fontsize=14)
-    plt.ylabel('Altura', fontsize=14)
+    plt.title(title, fontsize=14)
+    plt.xlabel('Distancia [km]', fontsize=14)
+    plt.ylabel('Altura [km]', fontsize=14)
     plt.show()
     return
 
