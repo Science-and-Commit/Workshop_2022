@@ -93,6 +93,7 @@ def mar(tiempo):
     Inputs:
     ======
     tiempo : [int] tiempo actual
+
     Outputs:
     ======
     T_mar : [float] temperatura del mar
@@ -111,6 +112,7 @@ def planta(tiempo):
     Inputs:
     ======
     tiempo : [int] tiempo actual
+    
     Outputs:
     ======
     T_planta : [float] temperatura de la planta
@@ -125,22 +127,17 @@ def atmosfera(tiempo, altura):
     ======
     tiempo : [int] tiempo actual
     altura : [int] altura en que se encuentra
+
     Outputs:
     ======
     T_atm : [float] temperatura de la atmosfera
     """
     if (tiempo > 8 and tiempo <= 16):
-        T_atm = 4 + 2 * (tiempo - 8)
-        if (altura >= 1000):
-            T_atm = T_atm - 6
+        T_atm = 4 + 2 * (tiempo - 8)  - (6/100) * altura
     if (tiempo > 16):
-        T_atm = 20 - 2 * (tiempo - 16)
-        if (altura >= 1000):
-            T_atm = T_atm - 6
+        T_atm = 20 - 2 * (tiempo - 16)  - (6/100) * altura
     else:
-        T_atm = 4
-        if (altura >= 1000):
-            T_atm = T_atm - 6
+        T_atm = 4  - (6/100) * altura
     return T_atm
     
 """
@@ -164,9 +161,10 @@ def set_Condiciones_borde(paisaje, dimensiones, tiempo, paso):
     dimensiones : [lista de dos elementos int]
     tiempo : [int]
     paso : [float]
+
     Outpus:
     ======
-    matriz_auc : [ndarray (filas,columnas)]
+    matriz_aux : [ndarray (filas,columnas)]
     """
     
     filas = dimensiones[0]
@@ -199,6 +197,7 @@ def una_iteracion(matriz_temp, filas, columnas, tiempo, paso, h=0.01, w=1):
     matriz_temp : [ndarray (filas,columnas)]
     h : [float]
     w : [float]
+
     Outputs: 
     ======
     matriz_temp : [ndarray]
@@ -222,6 +221,7 @@ def no_ha_convergido(matriz_temp, matriz_temp_prev, tol_relativa):
     matriz_temp : [ndarray (filas,columnas)]
     matriz_temp_prev : [ndarray (filas,columnas)]
     tol_relativa : [float]
+
     Outputs:
     ======
     output > tol_relativa : [boolean]
