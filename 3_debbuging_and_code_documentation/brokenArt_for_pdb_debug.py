@@ -1,18 +1,5 @@
 """
-Warning: This code is broken. Don't treat it as model code for your work.
-
-This code generates random pixel art. The values are all integers drawn from a
-random uniform distribution. The range of the random distribution increases as 
-we go up in the image. We also will log how many times each integer is hit.  
-
-# Topics we'll cover:
-# - pdb
-# - setting up debugging configuration in VSCode
-# - post mortem debugging
-# - breakpoints/conditional breakpoints
-# - stepping through lines
-# - debug console
-# - How to use this when developing for large packages. 
+Warning: This code is broken.
 """
 
 import numpy as np
