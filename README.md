@@ -6,6 +6,9 @@ Aca encuentras los códigos y presentaciones de cada sesión del Workshop y en [
 
 ![luan](https://raw.githubusercontent.com/Science-and-Commit/Science-and-Commit.github.io/master/assets/favicon/Luan_mortal.png)
 
+[Todo el Workshop](https://youtube.com/playlist?list=PL7_YvzRGkjHNp5sGLJ_SwzUHpHURDBTQf) está registrado en esta lista de youtube y el material lo encuentran en el GitHub.
+
+
 # RESUMEN
 
 En la práctica, la idea es hacer 6 sesiones sincrónicas donde se presentarán animaciones cortitas para introducir cada temática. Luego revisaremos el contenido teórico haciendo uso de material interactivo que iremos presentando y trabajando en conjunto.
@@ -20,6 +23,7 @@ Este workshop se basa en [Code/Astro](https://github.com/semaphoreP/codeastro).
 
 ![Logo](https://github.com/Science-and-Commit/Workshop_2022/blob/main/General_Information/Pictures/logo_redondo.png) 
 
+
 # Slides 
 [Día 1](https://docs.google.com/presentation/d/1IPLx3d9XvkbYrFGhrM_OvDCd3FJNNPW3FGQX2b1vVk8/edit?usp=sharing) \
 [Día 2](https://docs.google.com/presentation/d/1sp3A4uPC5RTGtGWWERbAkT87vYes0AlClQW-4c0BbRM/edit?usp=sharing) \
@@ -28,6 +32,7 @@ Este workshop se basa en [Code/Astro](https://github.com/semaphoreP/codeastro).
 [Charla Paula Sánchez Sáez](https://github.com/Science-and-Commit/Workshop_2022/blob/main/General_Information/Charla_PaulaSS.pdf)
 
 # Videos
+
 [Git y GitHub](https://www.youtube.com/watch?v=nbQop3zV8yo&t=74s) 
 
 [Paquetes y ambientes](https://www.youtube.com/watch?v=_IuU9f_UZu0&t=2s) 
