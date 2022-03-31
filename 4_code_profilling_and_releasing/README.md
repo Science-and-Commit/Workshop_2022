@@ -1,3 +1,5 @@
 # Code Profiling & Releasing Code
 
-Como pasar todo desde la programación en el computador a la publicación online. Primero crear una página web, luego ordenar el repositorio y finalmente hacer que el código sea descargable.
+Cómo evaluar la eficiencia de tu código (code profiling) y cómo publicar tu código en los servidores de PyPI para que sea pip instalable por cualquier persona.
+
+[Video](https://www.youtube.com/watch?v=fB7k5NlTZ-Q)
