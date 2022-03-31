@@ -23,6 +23,7 @@ Este workshop se basa en [Code/Astro](https://github.com/semaphoreP/codeastro).
 # Slides 
 [Día 1](https://docs.google.com/presentation/d/1IPLx3d9XvkbYrFGhrM_OvDCd3FJNNPW3FGQX2b1vVk8/edit?usp=sharing) \
 [Día 2](https://docs.google.com/presentation/d/1sp3A4uPC5RTGtGWWERbAkT87vYes0AlClQW-4c0BbRM/edit?usp=sharing) \
+[Día 3](https://docs.google.com/presentation/d/1ORa0qoh-ctIGpBeD8GU7L8bZm6K5kHMXzqA_iWKKXN0/edit?usp=sharing)
 
 [Charla Paula Sánchez Sáez](https://github.com/Science-and-Commit/Workshop_2022/blob/main/General_Information/Charla_PaulaSS.pdf)
 
