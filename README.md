@@ -22,12 +22,17 @@ Este workshop se basa en [Code/Astro](https://github.com/semaphoreP/codeastro).
 
 # Slides 
 [Día 1](https://docs.google.com/presentation/d/1IPLx3d9XvkbYrFGhrM_OvDCd3FJNNPW3FGQX2b1vVk8/edit?usp=sharing) \
-[Día 2](https://docs.google.com/presentation/d/1sp3A4uPC5RTGtGWWERbAkT87vYes0AlClQW-4c0BbRM/edit?usp=sharing) \
+[Día 2](https://docs.google.com/presentation/d/1sp3A4uPC5RTGtGWWERbAkT87vYes0AlClQW-4c0BbRM/edit?usp=sharing) 
 
 # Videos
 [Git y GitHub](https://www.youtube.com/watch?v=nbQop3zV8yo&t=74s) \
+
 [Paquetes y ambientes](https://www.youtube.com/watch?v=_IuU9f_UZu0&t=2s) \ 
+
 [Debugging y documentación de código](https://www.youtube.com/watch?v=Mp8BXW6ammI) \
+
 [Code profiling y Releasing Code](https://www.youtube.com/watch?v=fB7k5NlTZ-Q) \
+
 [Programación en paralelo y Software Testing](https://www.youtube.com/watch?v=AkcztOQUMgg&t=21s) \
-[Practicas anti-discriminatorias en programación](https://youtu.be/foD8vHEtexE) \
+
+[Practicas anti-discriminatorias en programación](https://youtu.be/foD8vHEtexE) 
